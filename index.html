@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<title>Space Hangman</title>
+
+<!-- Bootstrap -->
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Css stylesheet link -->
+<link rel = "stylesheet" type = "text/css" href = "assets/css/style.css"/> 
+
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</head>
+
+<!-- Main Title -->
+<div class="col-xs-12 col-md-12">
+	<div class="title">Spaceman</div>
+</div>
+
+<body>
+<div class="container">
+	<!--Left hand side menu -->
+	<div class="col-xs-12 col-md-2">
+		<div class="leftMenu">
+			<div class="row">
+				<div class="col-xs-6 col-md-12">
+					<div class="wins">
+					<h1>Wins!</h1>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-6 col-md-12">
+					<div class="guessesLeft">
+					<h1>Guesses Left</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+			<!-- main game content -->
+			<div class="col-xs-12 col-md-10">
+				<div class="mainSection">
+
+				<!--Press Key Title -->
+					<div class="row">
+						<div class="col-xs-12 col-md-12">
+							<div class="pressKey">
+								<h2>Press Any key to start</h2>
+							</div>
+						</div>
+					</div>
+
+				<!-- 2nd row main section -->
+					<div class="row">
+						<div class="col-xs-12 col-md-12">
+							<div class="pressKey">
+								<h2 id="letterInput"></h2>
+							</div>
+						</div>
+					</div>
+
+				<!-- 3rd row main section -->
+					<div class="row">
+						<div class="col-xs-12 col-md-12">
+							<div class="pressKey">
+								<h2>ROW 3 (WILL BE EMPTY)</h2>
+							</div>
+						</div>
+					</div>
+
+				<!-- 4th row empty section -->
+					<div class="row">
+						<div class="col-xs-12 col-md-12">
+							<div class="pressKey">
+								<h2>ROW 4 (WILL BE EMPTY)</h2>
+							</div>
+						</div>
+					</div>
+
+
+				<!-- 5th row empty section -->
+					<div class="row">
+						<div class="col-xs-12 col-md-12">
+							<div class="pressKey">
+								<h2>ROW 5 WILL BE EMPTY</h2>
+							</div>
+						</div>
+					</div>
+
+				<!-- Keyboard -->
+					<div class="row">
+						<div class="col-xs-12 col-md-12">
+							<div class="keyboard">
+								<h3>Letters Remaining!<h3>
+								<span id="letterA">A</span>
+								<span id="letterB">B</span>
+								<span id="letterC">C</span>
+								<span id="letterC">D</span>
+								<span id="letterE">E</span>
+								<span id="letterF">F</span>
+								<span id="letterG">G</span>
+								<span id="letterH">H</span>
+								<span id="letterI">I</span>
+								<span id="letterJ">J</span>
+								<span id="letterK">K</span>
+								<span id="letterL">L</span>
+								<span id="letterM">M</span>
+								<span id="letterN">N</span>
+								<span id="letterO">O</span>
+								<span id="letterP">P</span>
+								<span id="letterQ">Q</span>
+								<span id="letterR">R</span>
+								<span id="letterS">S</span>
+								<span id="letterT">T</span>
+								<span id="letterU">U</span>
+								<span id="letterV">V</span>
+								<span id="letterW">W</span>
+								<span id="letterX">X</span>
+								<span id="letterY">Y</span>
+								<span id="letterZ">Z</span>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+</div>	
+
+<script type="text/javascript">
+	
+//Word Bank
+var words = [ "Hybrid", "Gears", "Hydraulic", "Sensor", "Operator"
+];
+
+//Random word selector
+var word = words[Math.floor(Math.random() * words.length)];
+
+//Answer section with underline 
+var answerArray = [];
+ for (var i = 0; i < word.length; i++) {
+  answerArray.push("_");
+}
+
+console.log(answerArray);
+
+document.getElementById("letterInput").innerHTML=answerArray.join("_ ");
+
+//recognize keyboard press
+document.onkeyup = function(event) {
+
+// Captures the key press, converts it to lowercase, and saves it to a variable.
+var letter = String.fromCharCode(event.keyCode).toLowerCase();
+
+// If the letter is a, run the following functions/methods.
+if (letter === "a") {
+	alert("This is working");
+}
+};
+
+//Wins: (# of times user guessed the word correctly).  OK!!!!
+
+
+//if multiple things are going to be checked -- Conditional 
+
+//if something needs to be done over and over or look over the index of an array --- Loop 
+
+//if something needs to be done (loop or conditional) -- use a function 
+
+//As the user guesses the correct letters, reveal them: m a d o _  _ a.
+
+//Number of Guesses Remaining: (# of guesses remaining for the user).
+
+//Letters Already Guessed: (Letters the user has guessed, displayed like L Z Y H).
+
+//After the user wins/loses the game should automatically choose another word and make the user play it.
+
+</script>
+
+</body>
+</html>
